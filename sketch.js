@@ -24,6 +24,7 @@ let ballImageWidth = 100; // Scaled width for the image (adjusted down)
 let ballImageHeight; // Scaled height for the image (will be calculated based on aspect ratio)
 
 let hitboxVisible = false; // Set to true to show the hitbox, false to hide it
+let pointsVisible = false; // Variable to control points' visibility
 let hitboxScaleFactor = 0.8; // Factor to slightly increase the size of the hitbox
 
 function preload() {
@@ -55,7 +56,6 @@ function setup() {
   }
 }
 
-let pointsVisible = true; // Variable to control points' visibility
 
 function draw() {
   background(255);
