@@ -23,7 +23,7 @@ let originalImageHeight = 274; // Original height of the image
 let ballImageWidth = 100; // Scaled width for the image (adjusted down)
 let ballImageHeight; // Scaled height for the image (will be calculated based on aspect ratio)
 
-let hitboxVisible = true; // Set to true to show the hitbox, false to hide it
+let hitboxVisible = false; // Set to true to show the hitbox, false to hide it
 let hitboxScaleFactor = 0.8; // Factor to slightly increase the size of the hitbox
 
 function preload() {
