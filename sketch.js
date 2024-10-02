@@ -12,7 +12,7 @@ let velocities = []; // To store the velocity of each rope point
 
 let pipes = [];
 let pipeWidth = 60;
-let pipeGap = 240; // Increase the pipe gap for easier gameplay
+let pipeGap = 200; // Increase the pipe gap for easier gameplay
 let pipeSpeed = 3;
 let pipeSpacing = 400; // Increase pipe spacing so pipes appear less frequently
 
@@ -29,9 +29,7 @@ let hitboxScaleFactor = 0.8; // Factor to slightly increase the size of the hitb
 
 function preload() {
   // Load the ball image from the local directory
-   ballImage = loadImage('assets/ball.png'); // Replace with your image file path
-  //ballImage = loadImage('assets/cat.png'); // Replace with your image file path
-
+  ballImage = loadImage('assets/ball.png'); // Replace with your image file path
 }
 
 function setup() {
@@ -56,13 +54,12 @@ function setup() {
   }
 }
 
-
 function draw() {
   background(255);
 
-  // If the mouse is pressed, make the head of the rope stick to the mouse
+  // If the mouse or touch is pressed, make the head of the rope stick to the mouse/touch
   if (isSticking) {
-    rope[0] = createVector(mouseX, mouseY); // Stick the head of the rope to the mouse
+    rope[0] = createVector(mouseX, mouseY); // Stick the head of the rope to the mouse/touch
   } else if (isFlapping) {
     velocities[0].y = flapStrength; // Apply flap force to the first point
     isFlapping = false;
@@ -226,4 +223,15 @@ function keyPressed() {
     hitboxVisible = !hitboxVisible; // Toggle hitbox visibility with 'H' key
     pointsVisible = !pointsVisible; // Toggle points' visibility with 'H' key
   }
+}
+
+// Touch event handlers for mobile devices
+function touchStarted() {
+  isSticking = true; // Start sticking the rope to the touch
+  return false; // Prevent default touch behavior
+}
+
+function touchEnded() {
+  isSticking = false; // Stop sticking the rope to the touch
+  return false; // Prevent default touch behavior
 }
